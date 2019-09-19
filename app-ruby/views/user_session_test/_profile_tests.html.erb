@@ -1,0 +1,86 @@
+<div class="col-xs-4">
+  <label>Select your host</label>
+  <%= select_tag('basic_info_test_host', options_for_select(hosts)) %>
+  <%= link_to 'Run Basic Info Change Test', '', id: 'basicInfoTest', class: 'btn btn-primary', method: :post, remote: true %>
+</div>
+<script>
+
+    $('#basicInfoTest').on('click', function () {
+        $('#profileTestResultsLoad').show();
+        var host_url = $('#basic_info_test_host :selected').text();
+        console.log('sending host: ',host_url);
+        event.preventDefault();
+        $.ajax({
+            url: '<%= user_session_basic_info_test_path %>',
+            method: 'POST',
+            data: {
+                host_url: host_url
+            },
+            success: function() {
+                console.log('Successful!');
+            },
+            error: function(error) {
+                console.log('error: ', error.status);
+            }
+        });
+    });
+</script>
+<br>
+<br>
+<div class="col-xs-4">
+  <label>Select your host</label>
+  <%= select_tag('basic_address_test_host', options_for_select(hosts)) %>
+  <%= link_to 'Run Address Tests', '', id: 'basicAddressTest', class: 'btn btn-primary', method: :post, remote: true %>
+</div>
+
+<script>
+    $('#basicAddressTest').on('click', function () {
+        $('#profileTestResultsLoad').show();
+        var host_url = $('#basic_address_test_host :selected').text();
+        console.log('sending host: ',host_url);
+        event.preventDefault();
+        $.ajax({
+            url: '<%= user_session_change_address_test_path %>',
+            method: 'POST',
+            data: {
+                host_url: host_url
+            },
+            success: function() {
+                console.log('Successful!');
+            },
+            error: function(error) {
+                console.log('error: ', error.status);
+            }
+        });
+    });
+</script>
+<br>
+<br>
+<div class="col-xs-4">
+  <label>Select your host</label>
+  <%= select_tag('basic_department_test_host', options_for_select(hosts)) %>
+  <%= link_to 'Run Department Tests', '', id: 'basicDepartmentTest', class: 'btn btn-primary', method: :post, remote: true %>
+</div>
+
+<script>
+
+    $('#basicDepartmentTest').on('click', function () {
+        $('#profileTestResultsLoad').show();
+        var host_url = $('#basic_department_test_host :selected').text();
+        console.log('sending host: ',host_url);
+        event.preventDefault();
+        $.ajax({
+            url: '<%= user_session_department_test_path %>',
+            method: 'POST',
+            data: {
+                host_url: host_url
+            },
+            success: function() {
+                console.log('Successful!');
+            },
+            error: function(error) {
+                console.log('error: ', error.status);
+            }
+        });
+    });
+</script>

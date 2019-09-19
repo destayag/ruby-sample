@@ -1,0 +1,3 @@
+$('#loginTestResultsLoad').hide();
+console.log('results = ', '<%= @results %>');
+$("#loginTestResults").html("<%= escape_javascript(render partial: 'user_session_test/results', locals: { results: @results} ) %>");

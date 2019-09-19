@@ -1,0 +1,3 @@
+$('#onsiteInterpretingTestResultsLoad').hide();
+console.log('results = ', '<%= @results %>');
+$("#onsiteInterpretingTestResults").html("<%= escape_javascript(render partial: 'onsite_interpreting_test/results', locals: { results: @results} ) %>");

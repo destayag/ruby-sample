@@ -1,0 +1,50 @@
+<div>
+  <div class="form">
+    <% if @results %>
+      <div class="col-xs-12 col-md-12">
+        <label class="col-xs-6">Test Executed: </label><span> <%= @results[:testName] %> on <strong>host:</strong> <%= @results[:host] %></span>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <label class="col-xs-3">Number of Total Tests: </label><span> <%= @results[:totalTests] %></span>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <label class="col-xs-3">Passed: </label><span> <%= @results[:numPassed] %>/<%= @results[:totalTests] %></span>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <label class="col-xs-3">Failed: </label><span> <%= @results[:numFailed] %>/<%= @results[:totalTests] %></span>
+      </div>
+      <% if @results[:totalTests].size == 0 %>
+        <p>No Tests were run</p>
+      <% else %>
+        <% if @results[:passed].size == 0 %>
+          <div class="col-xs-12 alert alert-danger">
+            <label>Tests Passed (Details): </label><br>
+            <span>NO TESTS PASSED, BEWARE!!!!</span>
+          </div>
+        <% else %>
+          <div class="col-xs-12 alert alert-success">
+            <label>Tests Passed (Details): </label><br>
+            <% @results[:passed].each_with_index do |passed, i| %>
+              <p><%= i + 1 %>) <%= passed %></p>
+            <% end %>
+          </div>
+        <% end %>
+        <% if @results[:failed].size == 0 %>
+          <div class="col-xs-12 alert alert-success">
+            <label>Final Result: </label><br>
+            <span>NO TESTS FAILED, GREAT!!!!</span>
+          </div>
+        <% else %>
+          <div class="col-xs-12 alert alert-danger">
+            <label>Tests Failed (Details): </label><br>
+            <% @results[:failed].each_with_index do |failed, i| %>
+              <p><%= i + 1 %>) <%= failed %></p>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>No Results Yet</p>
+    <% end %>
+  </div>
+</div>

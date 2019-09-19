@@ -1,0 +1,34 @@
+<h1>Onsite Interpreting Tests</h1>
+<hr />
+<div class="test-section col-xs-12">
+  <button class="btn btn-default btn-outline title-button" type="button" data-toggle="collapse" data-target="#onsiteInterpretingTests" aria-expanded="false" aria-controls="collapseExample">
+    Onsite Interpreting Tests
+  </button>
+
+
+  <div class="card card-body">
+    <div class="col-xs-4" id="onsiteInterpretingTests">
+      <h5>This will perform the various onsite interpreting tests such as: </h5>
+      <pre><br>Viewing onsite interpreting list for one service and more than 1 services.
+        <br>Adding onsite interpreting requests.
+        <br>Modify/Edit onsite interpreting requests.
+        <br>Select/Add/Edit locations on onsite interpreting requests.
+        <br>Different validations for onsite interpreting requests.
+        <br>View onsite interpreting requests.
+      </pre>
+      <%= render 'onsite_interpreting_test/onsite_tests', hosts: @host_urls %>
+    </div>
+    <hr />
+    <div class="col-xs-4">
+      <h5>Results:</h5>
+      <div id='onsiteInterpretingTestResultsLoad' class="custom-fa-loading-wrapper" display="none" style="margin: 5px;">
+        <i class="fa fa-refresh fa-spin-custom"></i>
+      </div>
+      <div id="onsiteInterpretingTestResults">
+        <%= render 'onsite_interpreting_test/results', results: '' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

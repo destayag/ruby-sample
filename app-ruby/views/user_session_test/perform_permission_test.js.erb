@@ -1,0 +1,3 @@
+$('#permissionTestResultsLoad').hide();
+console.log('results = ', '<%= @results %>');
+$("#permissionTestResults").html("<%= escape_javascript(render partial: 'user_session_test/results', locals: { results: @results} ) %>");

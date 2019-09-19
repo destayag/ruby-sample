@@ -1,0 +1,83 @@
+<h1>User Session Tests</h1>
+<hr />
+<div class="test-section col-xs-12">
+  <button class="btn btn-default btn-outline title-button" type="button" data-toggle="collapse" data-target="#loginTests" aria-expanded="false" aria-controls="collapseExample">
+    Login Tests
+  </button>
+
+  <div class="collapse" id="loginTests">
+    <div class="card card-body">
+      <div class="col-xs-4" id="loginTests">
+        <h5>This will perform the various login tests such as: </h5>
+        <pre><br>Simple login for all user roles <br>2-factor authentication <br>expectations of what happens when you fail to login</pre>
+        <%= render 'user_session_test/login_tests', hosts: @host_urls %>
+      </div>
+      <hr />
+      <div class="col-xs-4">
+        <h5>Results:</h5>
+        <div id='loginTestResultsLoad' class="custom-fa-loading-wrapper" display="none" style="margin: 5px;">
+          <i class="fa fa-refresh fa-spin-custom"></i>
+        </div>
+        <div id="loginTestResults">
+          <%= render 'user_session_test/results', results: '' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="test-section col-xs-12">
+  <button class="btn btn-default btn-outline title-button" type="button" data-toggle="collapse" data-target="#profileTests" aria-expanded="false" aria-controls="collapseExample">
+    Profile Tests
+  </button>
+  <div class="collapse" id="profileTests">
+    <div class="card card-body">
+      <div class="col-xs-4" id="profileTests">
+        <h5>This will perform the various Profile tests such as: </h5>
+        <pre><br>Changing basic info for all user roles <br>Ensuring all sections are present or not present for each user role respectively
+          Managing and Changing User's Address <br>Adding and Removing Department <br>changing password
+          adding, updating and removing endpoints<br>updating current and notificaiton endpoint<br>Login History visable and valid
+        </pre>
+        <%= render 'user_session_test/profile_tests', hosts: @host_urls %>
+      </div>
+      <hr />
+      <div class="col-xs-4">
+        <h5>Results:</h5>
+        <div id='profileTestResultsLoad' class="custom-fa-loading-wrapper" display="none" style="margin: 5px;">
+          <i class="fa fa-refresh fa-spin-custom"></i>
+        </div>
+        <div id="profileTestResults">
+          <%= render 'user_session_test/results', results: '' %>
+        </div>
+      </div>
+      <hr />
+    </div>
+  </div>
+
+<div class="test-section col-xs-12">
+  <button class="btn btn-default btn-outline title-button" type="button" data-toggle="collapse" data-target="#permissionTests" aria-expanded="false" aria-controls="collapseExample">
+    Permission Tests
+  </button>
+  <div class="collapse" id="permissionTests">
+    <div class="card card-body">
+      <div class="col-xs-4" id="permissionTests">
+        <h5>This will perform the various user permission tests such as: </h5>
+        <pre><br>Checking if the side navigation is showing correct things
+          <br>Check to see if user can see unauthorized pages
+        </pre>
+        <%= render 'user_session_test/permission_tests', hosts: @host_urls %>
+      </div>
+      <hr />
+      <div class="col-xs-4">
+        <h5>Results:</h5>
+        <div id='permissionTestResultsLoad' class="custom-fa-loading-wrapper" display="none" style="margin: 5px;">
+          <i class="fa fa-refresh fa-spin-custom"></i>
+        </div>
+        <div id="permissionTestResults">
+          <%= render 'user_session_test/results', results: '' %>
+        </div>
+      </div>
+      <hr />
+    </div>
+  </div>
+
+</div>
